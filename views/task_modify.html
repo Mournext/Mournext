@@ -1,0 +1,93 @@
+ {{template "headerb" .}}
+ <title>Task-Change</title>     
+      <noscript>
+        <div class="alert alert-block span10">
+          <h4 class="alert-heading">Warning!</h4>
+          <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+        </div>
+      </noscript>
+      
+      <!-- start: Content -->
+      <div id="content" class="span10">
+      
+      
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          <a href="/">Home</a> 
+        <i class="icon-angle-right"></i>
+        </li>
+        <li><a href="/task">Task</a></li>
+        <i class="icon-angle-right"></i>
+        </li>
+        <li><a href="#">Change</a></li>                  
+      </ul>
+     <div class="row-fluid sortable">
+        <div class="box span12">
+          <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>Change Task</h2>
+            <div class="box-icon">
+              <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+              <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+              <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+            </div>
+          </div>
+          <div class="box-content">
+            <form method="post" action="/task" class="form-horizontal">
+              <fieldset>
+                <input type="hidden" name="tid" value="{{.Tid}}">
+              <div class="control-group">
+                <label class="control-label" for="typeahead">Task Name </label>
+                <div class="controls">
+                <input type="text" class="span6 typeahead" name="title" id="title" value="{{.Task.Title}}">                
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="select">Category</label>
+                <div class="controls">
+                  <input type="text" class="form-control" name="category" value="{{.Task.Cate}} ">
+                  </div> 
+                </div> 
+
+                <div class="control-group">
+                <label class="control-label" for="fileInput">File input</label>
+                <div class="controls">
+                <input class="input-file uniform_on" name="attach" id="attach" type="file" value="{{.Task.Attachment}}">
+                </div>
+              </div>     
+
+              <div class="control-group hidden-phone">
+                <label class="control-label" for="textarea2">Content</label>
+                <div class="controls">
+                <textarea class="cleditor" name="content" id="content" rows="3">{{.Task.Content}}</textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Change</button>         
+                <button type="reset" class="btn">Cancel</button>
+              </div>
+              </fieldset>
+            </form>
+          </div>
+          </div><!--/span-->
+
+      </div><!--/row-->
+       
+        
+      
+      
+    </div><!--/.fluid-container-->
+  
+            <!-- end: Content -->
+
+        </div><!--/#content.span10-->
+        </div><!--/fluid-row-->         
+     
+{{template "footerb"}}  
+  
+ 
+  
+</body>
+</html>

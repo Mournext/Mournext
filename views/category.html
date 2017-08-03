@@ -1,0 +1,92 @@
+{{template "headerb" .}}
+<title>Task-Category</title>
+      <!-- start: Content -->
+      <div id="content" class="span10">     
+      
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          <a href="/">Home</a> 
+           <i class="icon-angle-right"></i>
+        </li>
+        <li><a href="/category">Category</a></li>          
+      </ul>
+      
+      <div class="row-fluid sortable">    
+        <div class="box span12">
+          <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon tasks"></i><span class="break"></span>CategoryInfo</h2>
+            <div class="box-icon">
+              <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+              <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+              <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+            </div>
+          </div>
+
+            <div class="box-content">              
+      <form class="form-inline" method="get" action="/category">
+        <div class="form-group">
+          <input id="name" type="text" class="form-control" name="name" placeholder="Enter category name">
+          <input type="hidden" name="op" value="add">
+        </div>
+        <button type="submit" class="btn btn-default" onclick="return checkInput();">Add Category</button>
+      </form>
+          <script type="text/javascript">
+            function checkInput() {
+              var came = document.getElementById("name");
+              if (came.value.length == 0) {
+                alert("please input category name!");
+                return false;
+              }
+            }
+          </script>
+      <table class="table table-striped table-bordered bootstrap-datatable datatable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Category</th>
+            <th>TaskCount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{$islogin := .IsLogin}}
+          {{range .Categories}}
+          <tr> 
+            <th>{{.Id}}</th>
+            <th><a href="/category/type/{{.Title}}">{{.Title}}</a></th>
+            <th>{{.TaskCount}}</th>
+            <th>
+             <a class="btn btn-success" href="/task/type/{{.Title}}">View
+              <i class="halflings-icon white zoom-in"></i></a>
+              {{if $islogin}}
+              <a class="btn btn-danger" href="/category?op=del&id={{.Id}}">Delete
+               <i class="halflings-icon white trash"></i> </a>
+            {{end}}                       
+            </th>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>                       
+      </div>
+      
+        </div><!--/span-->
+      
+      </div><!--/row-->
+      
+      
+      </div><!--/.fluid-container-->
+  
+            <!-- end: Content -->
+        </div><!--/#content.span10-->
+        </div><!--/fluid-row-->         
+     
+    
+   {{template "footerb"}}    
+
+  
+
+
+  
+</body>
+</html>

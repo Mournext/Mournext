@@ -1,0 +1,113 @@
+ {{template "headerb" .}}
+ <title>Task-Add</title>     
+      <noscript>
+        <div class="alert alert-block span10">
+          <h4 class="alert-heading">Warning!</h4>
+          <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+        </div>
+      </noscript>
+      
+      <!-- start: Content -->
+      <div id="content" class="span10">
+      
+      
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          <a href="/">Home</a> 
+        <i class="icon-angle-right"></i>
+        </li>
+        <li><a href="/task">Task</a></li>
+        <i class="icon-angle-right"></i>
+        </li>
+        <li><a href="#">Add</a></li>          
+      </ul>
+     <div class="row-fluid sortable">
+        <div class="box span12">
+          <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>Add Task</h2>
+            <div class="box-icon">
+              <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+              <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+              <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+            </div>
+          </div>
+          <div class="box-content">
+            <form method="post" action="/task" class="form-horizontal">
+              <fieldset>
+              <div class="control-group">
+                <label class="control-label" for="typeahead">Task Name </label>
+                <div class="controls">
+                <input type="text" class="span6 typeahead" name="title" id="title" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>                
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Category</label>
+                <div class="controls">
+                  <input type="text" class="form-control" name="category">
+                  
+                  </div>                                              
+                </div> 
+             <!-- <select>
+                    <option value="{{.Task.Cate}} "></option>
+                  </select> <select id="sel" name="category"> </select> 
+             <script type="text/javascript">
+                var s = document.getElementById('sel');
+                s.options[index].value //指定索引位置项的值。
+                s.options[index].text //指定索引位置项的文本。
+                s.selectedIndex //被选择的项的索引
+                s.options[s.selectedIndex].value //被选择的项的值
+                s.options[s.selectedIndex].text //被选择的项的文本
+                //根据值取到文本
+                s.value = {{.Category.title}}
+                s.options[s.selectedIndex].text
+                //根据文本取到值
+                for(var i = 0, len = s.options.length; i < len; i++){
+                  if(s.options[i].text == {{.Category.title}}){
+                  //s.options[i].value 就是你要的值.
+                }
+              }
+              </script>  -->
+
+              <div class="control-group">
+                <label class="control-label" for="fileInput">File input</label>
+                <div class="controls">
+                <input class="input-file uniform_on" name="fileInput" id="fileInput" type="file">
+                </div>
+              </div>    
+              
+
+              <div class="control-group hidden-phone">
+                <label class="control-label" for="textarea2">Content </label>
+                <div class="controls">
+                <textarea class="cleditor" name="content" id="content" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save</button>         
+                <button type="reset" class="btn">Cancel</button>
+              </div>
+              </fieldset>
+            </form>
+          </div>
+          </div><!--/span-->
+
+      </div><!--/row-->
+       
+        
+      
+      
+    </div><!--/.fluid-container-->
+  
+            <!-- end: Content -->
+
+        </div><!--/#content.span10-->
+        </div><!--/fluid-row-->         
+     
+{{template "footerb"}}  
+  
+ 
+  
+</body>
+</html>
